@@ -5,3 +5,7 @@
 .hidden-key {
   display: none;
 }
+
+input {
+  font-size: 18px;
+}

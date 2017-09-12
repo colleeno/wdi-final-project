@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
-  var indoor = [['spa', 'spa'], ['shopping mall', 'shopping_mall'], ['restaurant', 'restaurant']]
-  var outdoor = [['museum', 'museum'], ['park', 'park'], ['restaurant', 'restaurant']]
+  var indoor = [['spa', 'spa'], ['shopping', 'retail store'], ['restaurant', 'restaurant'], ['museum', 'museum'], ['movies', 'movies']]
+  var outdoor = [['museum', 'museum'], ['park', 'park'], ['restaurant', 'fine dining'], ['biking', 'biking'], ['golf', 'golf course'],
+  ['bowling', 'bowling lane'], ['spa', 'spa'], ['shopping', 'department store'], ['movies', 'movies']]
   var map
   var service
   var secondKey = $('.hidden-key').text()
@@ -54,7 +55,7 @@ $(document).ready(function () {
     if (currentDescription.toLowerCase().indexOf('rain') !== -1 || dailyDescription.toLowerCase().indexOf('rain') !== -1 || feelslikeTemp < 60 || feelslikeTemp > 100) {
       randomizeActivities(indoor)
       randomizeList.forEach(function(activity) {
-        $('<div></div>').appendTo('body').text(`${activity[0]}`).addClass(`category ${activity[1]}`)
+        $('<div></div>').appendTo('body').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[1]}`})
       })
     }
     //otherwise do outdoor
@@ -62,13 +63,14 @@ $(document).ready(function () {
       console.log('do outdoor activity')
       randomizeActivities(outdoor)
       randomizeList.forEach(function(activity) {
-        $('<div></div>').appendTo('body').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[0]}`})
+        $('<div></div>').appendTo('body').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[1]}`})
       })
     }
   };
 
   function randomizeActivities (activityList) {
-   randomizeList = activityList.sort(function(a, b){return 0.5 - Math.random()}).slice(0,2)
+   randomizeList = activityList.sort(function(a, b){return 0.5 - Math.random()})
+  //  add back slice after testing .slice(0,2)
    return randomizeList
  }
 
@@ -83,8 +85,8 @@ $(document).ready(function () {
     // assign properties to request
     var request = {
       location: location,
-      radius: '2000', //meters
-      type: categoryType,
+      radius: '5000', //meters
+      keyword: categoryType, //can be type or keyword
       rankBy: google.maps.places.RankBy.PROMINENCE //can also rank by distance
     }
     // perform nearby search with requested props
@@ -104,13 +106,14 @@ $(document).ready(function () {
   // display place search result details on page
   function displayPlaces (place, status) {
     if (place !==  'undefined' && place) {
+      console.log(place)
     $(`<p>${place.name}</p>`).appendTo('body')
     $(`<p>${place.formatted_address}</p>`).appendTo('body')
     // edit site to link whole section or add logic to show if there
-    $(`website: <a href="${place.website}">${place.website}</a>`).appendTo('body')
+    $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo('body')
     // add logic to round rating and show star image possibly
     $(`<p>${place.rating} stars</p>`).appendTo('body')
-      if (place.reviews !== 'undefined') {
+      if (place.reviews !== 'undefined' && place.reviews[0].text.length > 0) {
         {$(`<p>review: ${place.reviews[0].text}</p>`).appendTo('body')}
       }
     }
