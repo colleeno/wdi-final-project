@@ -1,7 +1,7 @@
 # wdi-final-project
 
 Project Plan
-![Project Plan](images/project_plan.png)
+![Project Plan](public/images/project_plan.png)
 
 Wireframes
-![Wireframes](images/wireframes.png)
+![Wireframes](public/images/wireframes.png)

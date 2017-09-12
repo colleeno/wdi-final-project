@@ -1,9 +1,16 @@
+.hidden-key {
+  display: none;
+}
+
 #autocomplete {
   width: 300px;
 }
 
-.hidden-key {
-  display: none;
+body {
+  background: url('./images/sky.jpg');
+  background-position: center center;
+  text-align: center;
+  font-family: sans-serif;
 }
 
 input {
