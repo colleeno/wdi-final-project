@@ -130,23 +130,33 @@ $(document).ready(function () {
   // display place search result details on page
   function displayPlaces (place, status) {
      var container = $('<div></div>').addClass('place')
+     var stars = Math.round(place.rating)
       if (place !==  'undefined' && place) {
-      $(`<p>${place.name}</p>`).appendTo(container)
+      $(`<h3>${place.name}</h3>`).appendTo(container)
       $(`<p>${place.formatted_address}</p>`).appendTo(container)
       if (place.website){
       $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo(container)
         }
-      if (place.rating > 1){
-      $(`<p>${place.rating} stars</p>`).appendTo(container)
+      if (stars === 5){
+      $('<p> &#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
         }
-      else if (place.rating === 1){
-      $(`<p>${place.rating} star</p>`).appendTo(container)
+      else if (stars === 4) {
+      $('<p> &#9733; &#9733; &#9733; &#9733; &#9734;</p>').appendTo(container)
+        }
+      else if (stars === 3) {
+        $('<p> &#9733; &#9733; &#9733; &#9734; &#9734;</p>').appendTo(container)
+      }
+      else if (stars === 2) {
+        $('<p> &#9733; &#9733; &#9734; &#9734; &#9734;</p>').appendTo(container)
+      }
+      else if (stars === 1){
+      $('<p> &#9733; &#9734; &#9734; &#9734; &#9734;</p>').appendTo(container)
         }
       else {
-      $('<p>no stars yet</p>').appendTo(container)
+      $('<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
         }
       if (place.reviews !==  'undefined' && place.reviews[0].text.length > 0) {
-      $(`<p>review: ${place.reviews[0].text}</p>`).appendTo(container)
+      $(`<p class="review">"${place.reviews[0].text}"</p>`).appendTo(container)
         }
      container.appendTo('#placeResults')
     }
