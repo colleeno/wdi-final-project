@@ -29,7 +29,7 @@ h1 {
   color: rgba(255, 255, 255, 0.9);
   font-size: 54px;
   font-family: 'Raleway';
-  text-shadow: -1px 1px 1px #666666;
+  text-shadow: -1px 1px 4px #666666;
 }
 
 h2 {
@@ -218,6 +218,7 @@ input:focus {
 
 a {
     color: #555466;
+    word-wrap: break-word;
 }
 
 .review {
@@ -225,6 +226,28 @@ a {
 }
 
 @media screen and (max-width: 600px){
+
+  #home {
+    padding: 15% 2%;
+  }
+
+  #weatherResults {
+    padding: 20% 5%;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  input {
+    font-size: 20px;
+    width: 80%;
+  }
+
   .weatherWrapper {
     flex-wrap: wrap;
   }
@@ -241,5 +264,6 @@ a {
   }
   .category {
     margin: 10px auto;
+    width: 80%;
   }
 }
