@@ -49,8 +49,10 @@ $(document).ready(function () {
     feelslikeTemp = Math.round(response.current.feelslike_f)
     currentDescription = response.current.condition.text
     dailyDescription = response.forecast.forecastday[0].day.condition.text
+    dailyImg = response.forecast.forecastday[0].day.condition.icon.substring(15)
     $('<p class="temp"></p>').appendTo('.weather').text(`${currentTemp}°`)
-    $('<p></p>').appendTo('.weather').text(`Feels like ${feelslikeTemp}°`)
+    $('<p class="feelslike"></p>').appendTo('.weather').text(`Feels like ${feelslikeTemp}°`)
+    $(`<img src=./images/${dailyImg}>`).appendTo('.weather')
     $('<p></p>').appendTo('.weather').text(`Current: ${currentDescription}`)
     $('<p></p>').appendTo('.weather').text(`Today's forecast: ${dailyDescription}`)
     //find activities based on weather and scroll to results

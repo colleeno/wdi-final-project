@@ -84,17 +84,19 @@ h2 {
 .weather {
   width: 50%;
   padding: 5%;
-}
-
-.weatherDetails {
   font-size: 20px;
+  text-align: left;
 }
 
 .temp {
   font-size: 100px;
-  border-bottom: 1px solid black;
   margin: 0;
   padding: 3%;
+  text-align: center;
+}
+
+.feelslike {
+  display: inline;
 }
 
 .categories {
