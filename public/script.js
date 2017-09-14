@@ -52,6 +52,8 @@ $(document).ready(function () {
     dailyDescription = response.forecast.forecastday[0].day.condition.text
     dailyImg = response.forecast.forecastday[0].day.condition.icon.substring(15)
     $('<p></p>').appendTo('.weatherTemp').text(`${currentTemp}°`)
+      if (currentTemp < 70) {$('.weatherTemp').addClass('coolTemp')}
+      else {$('.weatherTemp').addClass('warmTemp')}
     $('<p class="feelslike"></p>').appendTo('.weatherDetails').text(`Feels like ${feelslikeTemp}°`)
     $(`<img src=./images/${dailyImg}>`).appendTo('.weatherDetails')
     $('<p></p>').appendTo('.weatherDetails').text(`Current: ${currentDescription}`)
@@ -130,8 +132,8 @@ $(document).ready(function () {
   // display place search result details on page
   function displayPlaces (place, status) {
      var container = $('<div></div>').addClass('place')
-     var stars = Math.round(place.rating)
       if (place !==  'undefined' && place) {
+        var stars = Math.round(place.rating)
       $(`<h3>${place.name}</h3>`).appendTo(container)
       $(`<p>${place.formatted_address}</p>`).appendTo(container)
       if (place.website){
@@ -155,7 +157,7 @@ $(document).ready(function () {
       else {
       $('<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
         }
-      if (place.reviews !==  'undefined' && place.reviews[0].text.length > 0) {
+      if (place.reviews !==  'undefined' && place.reviews[0] !== 'undefined' && place.reviews[0].text.length > 0) {
       $(`<p class="review">"${place.reviews[0].text}"</p>`).appendTo(container)
         }
      container.appendTo('#placeResults')

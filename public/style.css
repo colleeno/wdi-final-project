@@ -4,7 +4,8 @@
 
 body {
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
   margin: 0 auto;
 }
 
@@ -20,13 +21,32 @@ body {
   background-attachment: fixed;
 }
 
+h1 {
+  margin: 0;
+  padding: 3% 2% 0 2%;
+  color: rgba(75, 75, 75, 0.6);
+  color: white;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 54px;
+  font-family: 'Raleway';
+  text-shadow: -1px 1px 1px #666666;
+}
+
+h2 {
+  color: rgba(75, 75, 75, 0.6);
+  font-size: 36px;
+  padding-bottom: 1%;
+  font-weight: 300;
+}
+
 input {
-  font-size: 24px;
+  font-size: 28px;
   background: none;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.9);
   width: 50%;
   color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
 }
 
 input:focus {
@@ -54,19 +74,6 @@ input:focus {
   font-family: Helvetica, 'FontAwesome', sans-serif;
 }
 
-h1 {
-  margin: 0;
-  padding: 5% 2% 0 2%;
-  color: rgba(75, 75, 75, 0.6);
-  font-size: 50px;
-}
-
-h2 {
-  color: rgba(75, 75, 75, 0.6);
-  font-size: 36px;
-  padding-bottom: 1%;
-}
-
 #weatherResults {
   display: none;
   padding: 10% 5%;
@@ -92,7 +99,17 @@ h2 {
   font-size: 120px;
   margin: 0;
   text-align: center;
+  font-weight: 400;
+}
+
+.warmTemp {
   background: -webkit-linear-gradient(#B73524, #4D3384);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coolTemp {
+  background: -webkit-linear-gradient(#81A8DB, #304360);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -104,7 +121,7 @@ h2 {
 .weatherDetails {
   font-size: 20px;
   text-align: left;
-  padding-right: 30%;
+  padding-right: 25%;
   float: right;
 }
 
@@ -129,8 +146,9 @@ h2 {
   margin: 12px 10px;
   opacity: 0;
   box-shadow:
-   1px 1px 4px #B73524,
-   -1px -1px 4px #4D3384;
+   /*1px 1px 4px #B73524,
+   -1px -1px 4px #4D3384;*/
+   1px 1px 4px #555466;
   background-color: rgba(255,255,255,0.4);
 }
 
@@ -171,13 +189,8 @@ h2 {
   padding-bottom: 100px;
   padding: 5% 10% 10% 10%;
   /*background: #555466;*/
-  background: #6F717D;
-  /*background: rgb(111,113,125);
-background: -moz-linear-gradient(top, rgba(111,113,125,1) 0%, rgba(85,84,102,1) 100%);
-background: -webkit-linear-gradient(top, rgba(111,113,125,1) 0%,rgba(85,84,102,1) 100%);
-background: linear-gradient(to bottom, rgba(111,113,125,1) 0%,rgba(85,84,102,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f717d', endColorstr='#555466',GradientType=0 );*/
-
+  /*background: #6F717D;*/
+  background: #bbcedd;
 }
 
 .place {
