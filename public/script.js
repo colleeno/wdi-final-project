@@ -52,8 +52,6 @@ $(document).ready(function () {
     dailyDescription = response.forecast.forecastday[0].day.condition.text
     dailyImg = response.forecast.forecastday[0].day.condition.icon.substring(15)
     $('<p></p>').appendTo('.weatherTemp').text(`${currentTemp}°`)
-      if (currentTemp < 70) {$('.weatherTemp').addClass('coolTemp')}
-      else {$('.weatherTemp').addClass('warmTemp')}
     $('<p class="feelslike"></p>').appendTo('.weatherDetails').text(`Feels like ${feelslikeTemp}°`)
     $(`<img src=./images/${dailyImg}>`).appendTo('.weatherDetails')
     $('<p></p>').appendTo('.weatherDetails').text(`Current: ${currentDescription}`)
@@ -86,6 +84,14 @@ $(document).ready(function () {
       randomizeList.forEach(function(activity) {
         $('<div></div>').appendTo('.categories').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[1]}`})
       })
+    }
+    if (currentTemp < 70) {
+      $('.weatherTemp').addClass('coolTemp')
+      $('.category').addClass('coolCategory')
+    }
+    else {
+      $('.weatherTemp').addClass('warmTemp')
+      $('.category').addClass('warmCategory')
     }
   };
 
