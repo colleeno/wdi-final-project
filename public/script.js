@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-  var indoor = [['spa', 'spa'], ['shopping', 'department_store'], ['restaurant', 'fine dining'], ['museum', 'museum'], ['bowling', 'bowling lane'], ['movies', 'movies']]
-  var outdoor = [['museum', 'museum'], ['park', 'park'], ['restaurant', 'fine dining'], ['biking', 'biking'], ['golf', 'golf course'], ['zoo', 'zoo'], ['ice cream', 'ice cream']]
+  var indoor = [['spas', 'spa'], ['shopping', 'department_store'], ['restaurants', 'fine dining'], ['museums', 'museum'], ['bowling', 'bowling lane'], ['movies', 'movies']]
+  var outdoor = [['museums', 'museum'], ['parks', 'park'], ['restaurants', 'fine dining'], ['biking', 'biking'], ['golfing', 'golf course'], ['zoos', 'zoo'], ['ice cream', 'ice cream']]
   var secondKey = $('.hidden-key').text()
 
 //reset page for each new input
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
   function scrollWeather (){
     $('html, body').animate({
-        scrollTop: $('#weatherResults').offset().top
+        scrollTop: $('#weatherResults').offset().top +100
     }, 1500);
     return false;
   }
@@ -173,7 +173,7 @@ $(document).ready(function () {
   // scroll to place results
   function scrollPlace (){
     $('html, body').stop().animate({
-        scrollTop: $('#placeResults').offset().top
+        scrollTop: $('#placeResults').offset().top +20
     }, 1500);
     return false;
   }
