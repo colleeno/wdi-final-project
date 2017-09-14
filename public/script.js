@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   var indoor = [['spa', 'spa'], ['shopping', 'department_store'], ['restaurant', 'fine dining'], ['museum', 'museum'], ['bowling', 'bowling lane'], ['movies', 'movies']]
-  var outdoor = [['museum', 'museum'], ['park', 'park'], ['restaurant', 'fine dining'], ['biking', 'biking'], ['golf', 'golf course'], ['zoo', 'zoo']]
+  var outdoor = [['museum', 'museum'], ['park', 'park'], ['restaurant', 'fine dining'], ['biking', 'biking'], ['golf', 'golf course'], ['zoo', 'zoo'], ['ice cream', 'ice cream']]
   var map
   var service
   var secondKey = $('.hidden-key').text()
@@ -116,15 +116,22 @@ $(document).ready(function () {
   // display place search result details on page
   function displayPlaces (place, status) {
     if (place !==  'undefined' && place) {
-      console.log(place)
     $(`<p>${place.name}</p>`).appendTo('#placeResults')
     $(`<p>${place.formatted_address}</p>`).appendTo('#placeResults')
-    // edit site to link whole section or add logic to show if there
+    if (place.website){
     $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo('#placeResults')
-    // add logic to round rating and show star image possibly
-    $(`<p>${place.rating} stars</p>`).appendTo('#placeResults')
-      if (place.reviews !== 'undefined' && place.reviews[0].text.length > 0) {
-        {$(`<p>review: ${place.reviews[0].text}</p>`).appendTo('#placeResults')}
+    }
+      (function stars () {
+        if (place.rating > 1){
+          $(`<p>${place.rating} stars</p>`).appendTo('#placeResults')
+        }
+        else if (place.rating === 1){
+          $(`<p>${place.rating} star</p>`).appendTo('#placeResults')
+        }
+        else {$('<p>no stars yet</p>').appendTo('#placeResults')}
+      })()
+    if (place.reviews[0] && place.reviews[0].text.length > 0) {
+      $(`<p>review: ${place.reviews[0].text}</p>`).appendTo('#placeResults')
       }
 
     }
