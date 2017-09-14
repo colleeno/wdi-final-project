@@ -46,6 +46,7 @@ $(document).ready(function () {
     $('<p></p>').appendTo('.weatherDetails').text(`Current: ${currentDescription}`)
     $('<p></p>').appendTo('.weatherDetails').text(`Today's forecast: ${dailyDescription}`)
     //recommend activities based on weather
+    $('#weatherResults').css('display', 'block')
     mapWeatherToActivities()
     scrollWeather()
   }
@@ -70,7 +71,7 @@ $(document).ready(function () {
         $('<div></div>').appendTo('.categories').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[1]}`})
       })
     }  else {
-      console.log('outdoot')
+      console.log('outdoor')
       randomizeActivities(outdoor)
       randomizeList.forEach(function(activity) {
         $('<div></div>').appendTo('.categories').text(`${activity[0]}`).attr({'class': 'category', 'id': `${activity[1]}`})
@@ -85,6 +86,7 @@ $(document).ready(function () {
 
 // find places from google places
   function getPlaces() {
+    $('#placeResults').css('display', 'block');
     //set type to search as category selected by user
     var categoryType = $(this).attr('id')
     //search by locations lat lng values
@@ -110,30 +112,32 @@ $(document).ready(function () {
         var place = results[i]
         // perform details search by place id based on results, call displayPlaces function
           service.getDetails({placeId: place.place_id}, displayPlaces)
+          $(`<div></div>`).addClass(`${place.place_id}`)
       }
     }
   }
   // display place search result details on page
   function displayPlaces (place, status) {
+     var container = $('<div></div>').addClass('place')
     if (place !==  'undefined' && place) {
-    $(`<p>${place.name}</p>`).appendTo('#placeResults')
-    $(`<p>${place.formatted_address}</p>`).appendTo('#placeResults')
+    $(`<p>${place.name}</p>`).appendTo(container)
+    $(`<p>${place.formatted_address}</p>`).appendTo(container)
     if (place.website){
-    $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo('#placeResults')
+    $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo(container)
     }
-      (function stars () {
+      // (function stars () {
         if (place.rating > 1){
-          $(`<p>${place.rating} stars</p>`).appendTo('#placeResults')
+          $(`<p>${place.rating} stars</p>`).appendTo(container)
         }
         else if (place.rating === 1){
-          $(`<p>${place.rating} star</p>`).appendTo('#placeResults')
+          $(`<p>${place.rating} star</p>`).appendTo(container)
         }
-        else {$('<p>no stars yet</p>').appendTo('#placeResults')}
-      })()
+        else {$('<p>no stars yet</p>').appendTo(container)}
+      // })()
     if (place.reviews[0] && place.reviews[0].text.length > 0) {
-      $(`<p>review: ${place.reviews[0].text}</p>`).appendTo('#placeResults')
+      $(`<p>review: ${place.reviews[0].text}</p>`).appendTo(container)
       }
-
+      container.appendTo('#placeResults')
     }
     scrollPlace()
   }

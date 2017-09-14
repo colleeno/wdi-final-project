@@ -68,6 +68,7 @@ h2 {
 }
 
 #weatherResults {
+  display: none;
   padding: 5%;
   height: 450px;
 }
@@ -106,9 +107,42 @@ h2 {
   padding: 5%;
   margin: 10px 5px;
   border: 1px solid grey;
+  opacity: 0;
+}
+
+.category:first-child {
+  opacity: 0;
+  animation: categoryFade 0.7s ease 1s forwards;
+}
+
+.category:nth-child(2n) {
+  opacity: 0;
+  animation: categoryFade 0.7s ease 1.2s forwards;
+}
+
+.category:nth-child(3n) {
+  opacity: 0;
+  animation: categoryFade 0.7s ease 1.4s forwards;
+}
+
+.category:last-child {
+  opacity: 0;
+  animation: categoryFade 0.7s ease 1.6s forwards;
+}
+
+@keyframes categoryFade {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
 #placeResults {
+  display: none;
   text-align: left;
   padding-bottom: 100px;
   padding: 5% 10% 10% 10%;
