@@ -7,7 +7,8 @@ $(document).ready(function () {
 //reset page for each new input
   $('input,textarea').focus(function(){
      $(this).val('')
-     $('.weather').empty()
+     $('.weatherTemp').empty()
+     $('.weatherDetails').empty()
      $('.categories').empty()
      $('.place').empty()
      $('#weatherResults').css('display', 'none')
@@ -50,11 +51,11 @@ $(document).ready(function () {
     currentDescription = response.current.condition.text
     dailyDescription = response.forecast.forecastday[0].day.condition.text
     dailyImg = response.forecast.forecastday[0].day.condition.icon.substring(15)
-    $('<p class="temp"></p>').appendTo('.weather').text(`${currentTemp}°`)
-    $('<p class="feelslike"></p>').appendTo('.weather').text(`Feels like ${feelslikeTemp}°`)
-    $(`<img src=./images/${dailyImg}>`).appendTo('.weather')
-    $('<p></p>').appendTo('.weather').text(`Current: ${currentDescription}`)
-    $('<p></p>').appendTo('.weather').text(`Today's forecast: ${dailyDescription}`)
+    $('<p></p>').appendTo('.weatherTemp').text(`${currentTemp}°`)
+    $('<p class="feelslike"></p>').appendTo('.weatherDetails').text(`Feels like ${feelslikeTemp}°`)
+    $(`<img src=./images/${dailyImg}>`).appendTo('.weatherDetails')
+    $('<p></p>').appendTo('.weatherDetails').text(`Current: ${currentDescription}`)
+    $('<p></p>').appendTo('.weatherDetails').text(`Today's forecast: ${dailyDescription}`)
     //find activities based on weather and scroll to results
     mapWeatherToActivities()
     scrollWeather()
@@ -144,7 +145,7 @@ $(document).ready(function () {
       else {
       $('<p>no stars yet</p>').appendTo(container)
         }
-      if (place.reviews[0] && place.reviews[0].text.length > 0) {
+      if (place.reviews !==  'undefined' && place.reviews[0].text.length > 0) {
       $(`<p>review: ${place.reviews[0].text}</p>`).appendTo(container)
         }
      container.appendTo('#placeResults')
