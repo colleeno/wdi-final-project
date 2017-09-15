@@ -9,6 +9,8 @@ body {
   margin: 0 auto;
 }
 
+/*************home search section styles*************/
+
 #home {
   background: linear-gradient(
       rgba(255, 255, 255, 0.2),
@@ -75,6 +77,8 @@ input:focus {
 .fontAwesome {
   font-family: Helvetica, 'FontAwesome', sans-serif;
 }
+
+/************* second section weather styles*************/
 
 #weatherResults {
   display: none;
@@ -198,6 +202,8 @@ input:focus {
   }
 }
 
+/*************google place result section styles*************/
+
 #placeResults {
   display: none;
   text-align: left;
@@ -224,6 +230,8 @@ a {
 .review {
   font-style: italic;
 }
+
+/*************mobile styles*************/
 
 @media screen and (max-width: 600px){
 

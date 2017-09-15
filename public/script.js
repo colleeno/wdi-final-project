@@ -19,21 +19,20 @@ $(document).ready(function () {
   var input = document.getElementById('citySearch')
   var citySearch = new google.maps.places.Autocomplete(input, {types: ['(cities)']})
 
+  //get latitude and longitude for location
+  //connect to weather api with lat and lng
+
   google.maps.event.addListener(citySearch, 'place_changed', function(){
     city = citySearch.getPlace()
-    //get latitude and longitude for location
     lat = city.geometry.location.lat()
     lng = city.geometry.location.lng()
-      //connect to weather api with lat and lng
       $.ajax({
         url: `http://api.apixu.com/v1/forecast.json?key=${secondKey}&q=${lat},${lng}`,
         type: 'get',
         dataType: 'json'
         }).done((response) => {
             console.log('weather request success!')
-            //if weather request is successful, run displayWeather function
             displayWeather(response)
-            //when user clicks on category name, run function to get places
             $('.category').on('click', getPlaces)
         }).fail(() => {
             console.log('new weather request failed')
@@ -43,8 +42,8 @@ $(document).ready(function () {
     })
 
 
+  // display weather section with results from api
   function displayWeather (response) {
-    // display weather section with results from api
     $('#weatherResults').css('display', 'block')
     currentTemp = Math.round(response.current.temp_f)
     feelslikeTemp = Math.round(response.current.feelslike_f)
@@ -65,12 +64,12 @@ $(document).ready(function () {
     $('html, body').animate({
         scrollTop: $('#weatherResults').offset().top +100
     }, 1500);
+    $(this).delay(1000)
     return false;
   }
 
-
+  //if rain, cold, or too hot do indoor, else do outdoor
   function mapWeatherToActivities () {
-    //if rain, cold, or too hot do indoor, else do outdoor
     if (currentDescription.toLowerCase().indexOf('rain') !== -1 || dailyDescription.toLowerCase().indexOf('rain') !== -1
     || currentDescription.toLowerCase().indexOf('mist') !== -1 || dailyDescription.toLowerCase().indexOf('mist') !== -1
     || currentDescription.toLowerCase().indexOf('drizzle') !== -1 || dailyDescription.toLowerCase().indexOf('drizzle') !== -1
@@ -102,7 +101,7 @@ $(document).ready(function () {
  }
 
 
-// find places from google places
+ // find places from google places
   var map
   var service
   function getPlaces() {
