@@ -9,7 +9,7 @@ body {
   margin: 0 auto;
 }
 
-/*************home search section styles*************/
+/************* home search section styles *************/
 
 #home {
   background: linear-gradient(
@@ -26,8 +26,6 @@ body {
 h1 {
   margin: 0;
   padding: 3% 2% 0;
-  color: rgba(75, 75, 75, 0.6);
-  color: white;
   color: rgba(255, 255, 255, 0.9);
   font-size: 54px;
   font-family: 'Raleway';
@@ -78,7 +76,7 @@ input:focus {
   font-family: Helvetica, 'FontAwesome', sans-serif;
 }
 
-/************* second section weather styles*************/
+/************* second section weather styles *************/
 
 #weatherResults {
   display: none;
@@ -167,7 +165,7 @@ input:focus {
    -1px -1px 4px #81A8DB;
 }
 
-.category:hover {
+.category:hover, .visited {
   background-color: rgba(255,255,255,0.9);
 }
 
@@ -202,15 +200,13 @@ input:focus {
   }
 }
 
-/*************google place result section styles*************/
+/************* google place result section styles *************/
 
 #placeResults {
   display: none;
   text-align: left;
   padding-bottom: 100px;
   padding: 5% 10% 10% 10%;
-  /*background: #555466;*/
-  /*background: #6F717D;*/
   background: #bbcedd;
 }
 

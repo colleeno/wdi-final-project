@@ -108,6 +108,7 @@ $(document).ready(function () {
     $('#placeResults').css('display', 'block');
     //set type to search as category selected by user
     var categoryType = $(this).attr('id')
+    $(this).addClass('visited')
     //search by locations lat lng values
     var location = new google.maps.LatLng(lat,lng)
     // create map though it wont be displayed
@@ -120,7 +121,7 @@ $(document).ready(function () {
       exclude: ['liquor_store', 'alcohol', 'hotel', 'health', 'apartment', 'hotel', 'Jiu Jitsu', 'karate'],
       rankBy: google.maps.places.RankBy.PROMINENCE //can also rank by distance
     }
-    // perform nearby search with requested props
+    // perform nearby search with requested properties
     service = new google.maps.places.PlacesService(map)
     service.nearbySearch(request, callback)
   }
@@ -136,7 +137,6 @@ $(document).ready(function () {
   }
   // display place search result details on page
   function displayPlaces (place, status) {
-    console.log(place)
      var container = $('<div></div>').addClass('place')
       if (place) {
         var stars = Math.round(place.rating)
