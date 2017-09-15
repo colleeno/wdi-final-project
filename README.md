@@ -35,8 +35,8 @@ In public/script file, set the secondKey variable to your apixu key.
 * More robust weather - hourly forecasts.
 
 
-Project Plan
+**Project Plan**
 ![Project Plan](public/images/project_plan.png)
 
-Wireframes
+**Wireframes**
 ![Wireframes](public/images/wireframes.png)
