@@ -28,7 +28,7 @@ $(document).ready(function () {
     lat = city.geometry.location.lat()
     lng = city.geometry.location.lng()
       $.ajax({
-        url: `http://api.apixu.com/v1/forecast.json?key=${secondKey}&q=${lat},${lng}`,
+        url: `https://api.apixu.com/v1/forecast.json?key=${secondKey}&q=${lat},${lng}`,
         type: 'get',
         dataType: 'json'
         }).done((response) => {
