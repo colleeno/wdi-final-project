@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  console.log('linked')
 
   var indoor = [['spas', 'spa'], ['shopping', 'department_store'], ['restaurants', 'fine dining'], ['museums', 'museum'], ['bowling', 'bowling lane'], ['movies', 'movies']]
   var outdoor = [['museums', 'museum'], ['parks', 'park'], ['restaurants', 'fine dining'], ['biking', 'biking'], ['golfing', 'golf course'], ['zoos', 'zoo'], ['ice cream', 'ice cream']]
