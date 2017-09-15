@@ -162,7 +162,7 @@ $(document).ready(function () {
       else {
       $('<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
         }
-      if (place.reviews !==  'undefined' && place.reviews[0] !== 'undefined' && place.reviews[0].text.length > 0) {
+      if (place.reviews !==  'undefined' && place.reviews[0] && place.reviews[0].text.length > 0) {
       $(`<p class="review">"${place.reviews[0].text}"</p>`).appendTo(container)
         }
      container.appendTo('#placeResults')

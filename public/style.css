@@ -18,7 +18,7 @@ body {
     ), url('./images/sky.jpg');
   background-position: center center;
   background-clip: border-box;
-  height: 450px;
+  height: 100vh;
   padding: 10%;
   background-attachment: fixed;
 }
@@ -232,6 +232,12 @@ a {
 }
 
 /*************mobile styles*************/
+
+@media screen and (max-width: 800px){
+  #weatherResults {
+    padding: 20% 5%;
+  }
+}
 
 @media screen and (max-width: 600px){
 
