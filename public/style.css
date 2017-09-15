@@ -171,22 +171,22 @@ input:focus {
   background-color: rgba(255,255,255,0.9);
 }
 
-.category:first-child {
+.category:nth-child(1) {
   opacity: 0;
   animation: categoryFade 0.7s ease 1s forwards;
 }
 
-.category:nth-child(2n) {
+.category:nth-child(2) {
   opacity: 0;
   animation: categoryFade 0.7s ease 1.2s forwards;
 }
 
-.category:nth-child(3n) {
+.category:nth-child(3) {
   opacity: 0;
   animation: categoryFade 0.7s ease 1.4s forwards;
 }
 
-.category:last-child {
+.category:nth-child(4) {
   opacity: 0;
   animation: categoryFade 0.7s ease 1.6s forwards;
 }
@@ -222,7 +222,7 @@ input:focus {
   box-shadow: -4px 4px 8px #555466;
 }
 
-a {
+.place a {
     color: #555466;
     word-wrap: break-word;
 }

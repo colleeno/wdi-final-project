@@ -10,7 +10,7 @@ $(document).ready(function () {
      $('.weatherTemp').empty()
      $('.weatherDetails').empty()
      $('.categories').empty()
-     $('.place').empty()
+     $('#placeResults').empty()
      $('#weatherResults').css('display', 'none')
      $('#placeResults').css('display', 'none')
   })
@@ -127,8 +127,8 @@ $(document).ready(function () {
   // function based on results
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        var place = results[i]
+      for (let i = 0; i < results.length; i++) {
+        let place = results[i]
         // perform details search by place id based on results, call displayPlaces function
           service.getDetails({placeId: place.place_id}, displayPlaces)
       }
@@ -136,8 +136,9 @@ $(document).ready(function () {
   }
   // display place search result details on page
   function displayPlaces (place, status) {
+    console.log(place)
      var container = $('<div></div>').addClass('place')
-      if (place !==  'undefined' && place) {
+      if (place) {
         var stars = Math.round(place.rating)
       $(`<h3>${place.name}</h3>`).appendTo(container)
       $(`<p>${place.formatted_address}</p>`).appendTo(container)
@@ -162,7 +163,7 @@ $(document).ready(function () {
       else {
       $('<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
         }
-      if (place.reviews !==  'undefined' && place.reviews[0] && place.reviews[0].text.length > 0) {
+      if (place.reviews && place.reviews[0] && place.reviews[0].text.length > 0) {
       $(`<p class="review">"${place.reviews[0].text}"</p>`).appendTo(container)
         }
      container.appendTo('#placeResults')
