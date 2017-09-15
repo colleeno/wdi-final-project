@@ -23,7 +23,7 @@ In public/script file, set the secondKey variable to your apixu key.
 
 * `fork and clone this repo`
 * `$npm install`
-* `$node index.js` - will run on your local host at port 3000
+* `$npm start` - will run on your local host at port 3000
 
 **Future Updates**
 
