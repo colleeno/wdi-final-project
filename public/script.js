@@ -149,7 +149,7 @@ $(document).ready(function () {
       $(`<h3>${place.name}</h3>`).appendTo(container)
       $(`<p>${place.formatted_address}</p>`).appendTo(container)
       if (place.website){
-      $(`<p>website: <a href="${place.website}">${place.website}</a></p>`).appendTo(container)
+      $(`<p>website: <a href="${place.website}" target="_blank">${place.website}</a></p>`).appendTo(container)
         }
       if (stars === 5){
       $('<p> &#9733; &#9733; &#9733; &#9733; &#9733;</p>').appendTo(container)
