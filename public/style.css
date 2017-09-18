@@ -17,11 +17,13 @@ body {
       rgba(255, 255, 255, 0.2)
     ), url('./images/sky.jpg');
   background-position: center center;
-  background-clip: border-box;
+  /*background-clip: border-box;*/
   height: 100vh;
   padding: 10%;
   background-attachment: fixed;
+  background-position: fixed;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 h1 {
@@ -228,7 +230,8 @@ input:focus {
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .warmTemp {
-    background: -webkit-linear-gradient(#B73524, #4D3384);
+    background: linear-gradient(top, #B73524, #4D3384);
+    background: linear-gradient(to bottom, #B73524, #4D3384);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
