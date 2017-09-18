@@ -252,8 +252,6 @@ input:focus {
 
   #home {
     padding: 15% 2%;
-    background-position: top center;
-    background-image: url('./images/sky.jpg');
   }
 
   #weatherResults {
