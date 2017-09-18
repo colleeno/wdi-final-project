@@ -21,6 +21,7 @@ body {
   height: 100vh;
   padding: 10%;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -110,16 +111,10 @@ input:focus {
 
 .warmTemp {
   color: #7C002B;
-  background: -webkit-linear-gradient(#B73524, #4D3384);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .coolTemp {
   color: #445f88;
-  background: -webkit-linear-gradient(#81A8DB, #304360);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .weatherTemp p {
@@ -227,6 +222,22 @@ input:focus {
 
 .review {
   font-style: italic;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .warmTemp {
+    background: -webkit-linear-gradient(#B73524, #4D3384);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .coolTemp {
+    background: -webkit-linear-gradient(#81A8DB, #304360);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 /*************mobile styles*************/

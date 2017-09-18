@@ -136,7 +136,8 @@ $(document).ready(function () {
       for (let i = 0; i < results.length; i++) {
         let place = results[i]
         // perform details search by place id based on results, call displayPlaces function
-          service.getDetails({placeId: place.place_id}, displayPlaces)
+        service.getDetails({placeId: place.place_id}, displayPlaces)
+
       }
     }
   }
