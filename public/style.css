@@ -16,7 +16,7 @@ body {
       rgba(255, 255, 255, 0.2),
       rgba(255, 255, 255, 0.2)
     ), url('./images/sky.jpg');
-  background-position: center center;
+  background-position: top center;
   height: 100vh;
   padding: 10%;
   background-attachment: fixed;
@@ -253,6 +253,7 @@ input:focus {
   #home {
     padding: 15% 2%;
     background-position: top center;
+    background-image: url('./images/sky.jpg');
   }
 
   #weatherResults {
