@@ -74,6 +74,8 @@ $(document).ready(function () {
     if (currentDescription.toLowerCase().indexOf('rain') !== -1 || dailyDescription.toLowerCase().indexOf('rain') !== -1
     || currentDescription.toLowerCase().indexOf('mist') !== -1 || dailyDescription.toLowerCase().indexOf('mist') !== -1
     || currentDescription.toLowerCase().indexOf('drizzle') !== -1 || dailyDescription.toLowerCase().indexOf('drizzle') !== -1
+    || currentDescription.toLowerCase().indexOf('thunder') !== -1 || dailyDescription.toLowerCase().indexOf('thunder') !== -1
+    || currentDescription.toLowerCase().indexOf('thundery') !== -1 || dailyDescription.toLowerCase().indexOf('thundery') !== -1
     || feelslikeTemp < 60 || feelslikeTemp > 100) {
       randomizeActivities(indoor)
       randomizeList.forEach(function(activity) {
@@ -86,12 +88,12 @@ $(document).ready(function () {
       })
     }
     if (currentTemp < 70) {
-      $('.weatherTemp').addClass('coolTemp')
-      $('.category').addClass('coolCategory')
+      $('.weatherTemp').removeClass('warmTemp').addClass('coolTemp')
+      $('.category').removeClass('warmCategory').addClass('coolCategory')
     }
     else {
-      $('.weatherTemp').addClass('warmTemp')
-      $('.category').addClass('warmCategory')
+      $('.weatherTemp').removeClass('coolTemp').addClass('warmTemp')
+      $('.category').removeClass('coolCategory').addClass('warmCategory')
     }
   };
 
@@ -106,6 +108,8 @@ $(document).ready(function () {
   var map
   var service
   function getPlaces() {
+    //reset results section to display and clear past results
+    $('#placeResults').empty()
     $('#placeResults').css('display', 'block');
     //set type to search as category selected by user
     var categoryType = $(this).attr('id')

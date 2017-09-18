@@ -108,12 +108,14 @@ input:focus {
 }
 
 .warmTemp {
+  color: #7C002B;
   background: -webkit-linear-gradient(#B73524, #4D3384);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .coolTemp {
+  color: #445f88;
   background: -webkit-linear-gradient(#81A8DB, #304360);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -149,7 +151,6 @@ input:focus {
   cursor: pointer;
   padding: 5%;
   margin: 12px 10px;
-  opacity: 0;
   background-color: rgba(255,255,255,0.4);
 }
 
