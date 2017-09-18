@@ -17,7 +17,6 @@ body {
       rgba(255, 255, 255, 0.2)
     ), url('./images/sky.jpg');
   background-position: center center;
-  /*background-clip: border-box;*/
   height: 100vh;
   padding: 10%;
   background-attachment: fixed;
@@ -225,27 +224,23 @@ input:focus {
   font-style: italic;
 }
 
-
+/************* webkit only *************/
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .warmTemp {
-    color: #7C002B;
-    background: rgb(183,53,36);
-    background: -webkit-linear-gradient(top, rgba(183,53,36,1) 0%,rgba(77,51,132,1) 100%);
-    background: linear-gradient(to bottom, rgba(183,53,36,1) 0%,rgba(77,51,132,1) 100%);
+    background: -webkit-linear-gradient(#B73524, #4D3384);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .coolTemp {
-    color: #445f88;
-    background-image: -webkit-linear-gradient(#81A8DB, #304360);
+    background: -webkit-linear-gradient(#81A8DB, #304360);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
-/*************mobile styles*************/
+/************* mobile styles *************/
 
 @media screen and (max-width: 800px){
   #weatherResults {
@@ -262,6 +257,14 @@ input:focus {
 
   #weatherResults {
     padding: 20% 5%;
+  }
+
+  .warmTemp {
+    color: #7C002B;
+  }
+
+  .coolTemp {
+    color: #445f88;
   }
 
   h1 {
