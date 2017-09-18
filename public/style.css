@@ -21,7 +21,6 @@ body {
   height: 100vh;
   padding: 10%;
   background-attachment: fixed;
-  background-position: fixed;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -230,8 +229,8 @@ input:focus {
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .warmTemp {
-    background: linear-gradient(top, #B73524, #4D3384);
-    background: linear-gradient(to bottom, #B73524, #4D3384);
+    background: -webkit-linear-gradient(top, #B73524, #4D3384);
+    background: linear-gradient(#B73524, #4D3384);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -255,6 +254,7 @@ input:focus {
 
   #home {
     padding: 15% 2%;
+    background-position: top center;
   }
 
   #weatherResults {
