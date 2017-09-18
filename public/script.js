@@ -51,7 +51,7 @@ $(document).ready(function () {
     currentDescription = response.current.condition.text
     dailyDescription = response.forecast.forecastday[0].day.condition.text
     dailyImg = response.forecast.forecastday[0].day.condition.icon.substring(15)
-    $('<p></p>').appendTo('.weatherTemp').text(`${currentTemp}°`)
+    $('<p class="temp"></p>').appendTo('.weatherTemp').text(`${currentTemp}°`)
     $('<p class="feelslike"></p>').appendTo('.weatherDetails').text(`Feels like ${feelslikeTemp}°`)
     $(`<img src=./images/${dailyImg}>`).appendTo('.weatherDetails')
     $('<p></p>').appendTo('.weatherDetails').text(`Current: ${currentDescription}`)
@@ -88,11 +88,11 @@ $(document).ready(function () {
       })
     }
     if (currentTemp < 70) {
-      $('.weatherTemp').removeClass('warmTemp').addClass('coolTemp')
+      $('.temp').removeClass('warmTemp').addClass('coolTemp')
       $('.category').removeClass('warmCategory').addClass('coolCategory')
     }
     else {
-      $('.weatherTemp').removeClass('coolTemp').addClass('warmTemp')
+      $('.temp').removeClass('coolTemp').addClass('warmTemp')
       $('.category').removeClass('coolCategory').addClass('warmCategory')
     }
   };

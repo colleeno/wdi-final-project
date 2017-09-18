@@ -259,14 +259,6 @@ input:focus {
     padding: 20% 5%;
   }
 
-  .warmTemp {
-    color: #7C002B;
-  }
-
-  .coolTemp {
-    color: #445f88;
-  }
-
   h1 {
     font-size: 40px;
   }
